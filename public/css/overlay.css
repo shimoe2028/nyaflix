@@ -1,0 +1,84 @@
+@keyframes slideIn {
+  from {
+    right: -10%;
+    opacity: 0;
+  }
+
+  to {
+    right: 10px;
+    opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    right: 10px;
+    opacity: 1;
+  }
+
+  to {
+    right: -10%;
+    opacity: 0;
+  }
+}
+
+.video-overlay {
+  position: absolute;
+  top: 100px;
+  right: 0px;
+  margin: 0px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  border-radius: 10px;
+  z-index: 1000;
+  /* animation: slideIn 0.5s forwards; */
+  /* transition: left 1s, opacity 1s; */
+  opacity: 0;
+  transition: 2s;
+}
+
+.video-overlay.active {
+  right: 50px;
+  top: 200px;
+  opacity: 1;
+}
+
+/* @keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+.video-overlay {
+  position: absolute;
+  top: 100px;
+  right: 50px;
+  margin: 0;
+  padding: 10px 20px;
+  font-size: 16px;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  border-radius: 10px;
+  z-index: 1000;
+  animation: slideIn 0.5s forwards;
+} */

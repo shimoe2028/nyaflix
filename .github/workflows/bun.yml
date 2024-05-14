@@ -1,0 +1,15 @@
+---
+name: Build and Test with bun
+on:
+  - push
+jobs:
+  build:
+    name: build with bun
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v1
+
+      - run: bun install
+      - run: bun run build
+      - run: bun test

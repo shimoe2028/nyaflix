@@ -1,0 +1,73 @@
+{
+    "manifest_version": 3,
+    "name": "Nyaflix",
+    "description": "Sync streaming media with friends and your cat. Join, invite, and dive into shared videos instantly—wherever you are!",
+    "version": "1.0.0",
+    "icons": {
+        "16": "icons/icon16.png",
+        "48": "icons/icon48.png",
+        "128": "icons/icon128.png"
+    },
+    "action": {
+        "default_popup": "popup.html"
+    },
+    "permissions": [
+        "storage",
+        "activeTab"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "*://www.netflix.com/*"
+            ],
+            "js": [
+                "js/netflix-player-setup.js"
+            ],
+            "css": [
+                "css/overlay.css"
+            ],
+            "run_at": "document_end"
+        },
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "exclude_matches": [
+                "*://www.netflix.com/*"
+            ],
+            "js": [
+                "js/html5-player-setup.js"
+            ],
+            "css": [
+                "css/overlay.css"
+            ],
+            "all_frames": true,
+            "run_at": "document_end"
+        },
+        {
+            "matches": [
+                "${HTTP_SERVER}join/*"
+            ],
+            "js": [
+                "js/join-setup.js"
+            ],
+            "run_at": "document_start"
+        }
+    ],
+    "host_permissions": [
+        "<all_urls>"
+    ],
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "js/netflix-player-inject.js"
+            ],
+            "matches": [
+                "*://www.netflix.com/*"
+            ]
+        }
+    ],
+    "content_security_policy": {
+        "extension_pages": "script-src 'self' http://localhost;object-src 'self';"
+    }
+}

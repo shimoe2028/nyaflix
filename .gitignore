@@ -1,0 +1,21 @@
+# System files
+.DS_Store
+
+# Directories
+node_modules/
+dist/
+tmp/
+
+# IDE files
+.vscode/
+!.vscode/tasks.json
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# File types
+*.pem
+*.crx
+*.zip
