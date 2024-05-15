@@ -148,7 +148,7 @@ const Popup = () => {
               opacity: isEnteringRoom ? 1 : 0,
               transition: 'opacity 0.3s ease',
             }}
-            color="#bfa626"
+            color="#f2a100"
           />
           {/* <FaArrowRight
             style={{
