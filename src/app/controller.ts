@@ -44,7 +44,12 @@ export class HTML5VideoPlayer implements Player {
   }
 
   async play(): Promise<void> {
-    this.videoElement.play();
+    try {
+      await this.videoElement.play();
+    } catch (error) {
+      this.videoElement.muted = true;
+      await this.videoElement.play();
+    }
   }
 
   pause(): void {
